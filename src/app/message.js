@@ -1,28 +1,17 @@
-/*
-The Message component expects to be passed...
-- state: a game state string (plr1,plr2,plr1won,plr2won,draw)
-
-The component will then render an appropriate message.
-*/
-
 import React from 'react';
+
 
 export default function Message(props){
 
-  let message = "";
-
-  if (props.game.line > 0){
-    switch(props.game.state) {
-      case props.game.state === "plr1":
-      message = "Player 1 won"
-      break;
-      case props.game.state === "plr2":
-      message = "Player 2 won"
-      break;
-    }
-  }
+  let message = {
+    plr1: "Player 1's turn",
+    plr2: "Player 2's turn",
+    plr1won: "Player 1 won!!",
+    plr2won: "Player 2 won!!",
+    draw: "It's a draw."
+  };
 
   return (
-    <div>To be implemented...</div>
+    <p>{message[props.game.state]}</p>
   );
 }
